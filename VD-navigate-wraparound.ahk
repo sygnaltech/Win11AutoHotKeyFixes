@@ -1,5 +1,3 @@
-;FROM https://superuser.com/questions/1685845/moving-current-window-to-another-desktop-in-windows-11-using-shortcut-keys
-
 ;#SETUP START
 #SingleInstance force
 ListLines 0
@@ -28,34 +26,31 @@ VD.createUntil(3) ; Create until we have at least 3 virtual desktops
 
 return
 
-^#+Left:: {
+; ^ = Ctrl
+; # = Win
+; ! = Alt
+; + = Shift
+
+; NAVIGATE TO PREVIOUS DESKTOP WITH WRAP-AROUND
+; CTRL+WIN+Left
+
+^#Left:: {
     currentDesktop := VD.getCurrentDesktopNum()
     totalDesktops := VD.getCount()
 
     ; Loop around to the last desktop if at the first one
     previousDesktop := (currentDesktop = 1) ? totalDesktops : currentDesktop - 1
-    activeWindow := WinExist("A")
-
-    if (activeWindow) {
-        VD.MoveWindowToDesktopNum("ahk_id " activeWindow, previousDesktop)
-        VD.goToDesktopNum(previousDesktop)
-        Sleep 50  ; Small delay to ensure desktop switch completes
-        WinActivate("ahk_id " activeWindow)
-    }
+    VD.goToDesktopNum(previousDesktop)
 }
 
-^#+Right:: {
+; NAVIGATE TO NEXT DESKTOP WITH WRAP-AROUND
+; CTRL+WIN+Right
+
+^#Right:: {
     currentDesktop := VD.getCurrentDesktopNum()
     totalDesktops := VD.getCount()
 
     ; Loop around to the first desktop if at the last one
     nextDesktop := (currentDesktop = totalDesktops) ? 1 : currentDesktop + 1
-    activeWindow := WinExist("A")
-
-    if (activeWindow) {
-        VD.MoveWindowToDesktopNum("ahk_id " activeWindow, nextDesktop)
-        VD.goToDesktopNum(nextDesktop)
-        Sleep 50  ; Small delay to ensure desktop switch completes
-        WinActivate("ahk_id " activeWindow)
-    }
+    VD.goToDesktopNum(nextDesktop)
 }
