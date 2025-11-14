@@ -38,6 +38,7 @@ To enable the hotkeys you want, you'll enter the `Win11AutoHotKeyFixes` folder a
 - `VD-move-window-with-desktop.ahk`
 - `VD-cascade.ahk`
 - `AppSpecificTabSwitcher.ahk`
+- `VD-pin-app.ahk`
 
 These can be simply double-clicked to execute.
 
@@ -86,6 +87,7 @@ Navigate to the `Win11AutoHotKeyFixes` and double-click the scripts you want to 
 - `VD-move-window-with-desktop.ahk`
 - `VD-cascade.ahk`
 - `AppSpecificTabSwitcher.ahk`
+- `VD-pin-app.ahk`
 
 ### Troubleshooting 
 
@@ -108,7 +110,7 @@ If you get any errors when you run the script, the most likely causes are;
 
 ## Usage
 
-Functionality is divided into 3 scripts- 
+Functionality is divided into 4 scripts- 
 
 ### Moving windows
 
@@ -132,6 +134,13 @@ Functionality is divided into 3 scripts-
 
  - ``Alt + ` ``:  Switch to most recent non-focused window of same app
  - ``Alt + Shift + ` ``:  Switch to oldest non-focused windows of same app
+
+### Pinning apps/windows to every desktop
+
+*Run the `VD-pin-app.ahk` script.*
+
+ - `Ctrl + Win + Z`: Toggle pinning for the active application's executable (all of its windows show on every desktop)
+ - `Ctrl + Win + X`: Toggle pinning for only the currently focused window
 
 ## Other 
 

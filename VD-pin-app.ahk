@@ -52,7 +52,8 @@ PinActiveApp() {
 
     try {
         if VD.IsExePinned(exePath) {
-            ShowTransientTooltip("App already pinned to all desktops.")
+            VD.UnPinExe(exePath)
+            ShowTransientTooltip("Unpinned app from all desktops.")
         } else {
             VD.PinExe(exePath)
             ShowTransientTooltip("Pinned app to all desktops.")
@@ -80,7 +81,8 @@ PinActiveWindow() {
         }
 
         if isPinned {
-            ShowTransientTooltip("Window already pinned to all desktops.")
+            VD.UnPinWindow(wintitle)
+            ShowTransientTooltip("Unpinned window from all desktops.")
         } else {
             VD.PinWindow(wintitle)
             ShowTransientTooltip("Pinned window to all desktops.")
